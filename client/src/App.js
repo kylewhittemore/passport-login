@@ -19,8 +19,8 @@ function App() {
     <div className="App">
       <Container maxWidth="sm">
         <SignUp postUser={postUser} setCurrentUser={setCurrentUser} emptyUser={emptyUser} />
-        <h1>{currentUser.username}</h1>
-        <h1>{currentUser.password}</h1>
+        {/* <h1>{currentUser.username}</h1>
+        <h1>{currentUser.password}</h1> */}
       </Container>
     </div>
   );

@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const morgan = require('morgan')
 const dbConnection = require('./database')
-
+const session = require('express-session')
 const PORT = process.env.PORT || 8080;
 
 app.use(morgan('dev'))
