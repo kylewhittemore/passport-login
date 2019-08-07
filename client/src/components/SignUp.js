@@ -55,36 +55,36 @@ const SignUp = props => {
   }
 
   return (
-    <Container>
 
-      <form className={classes.container} onSubmit={handleFormSubmit} >
 
-        <TextField
-          id="standard-name"
-          label="Name"
-          className={classes.textField}
-          value={user.username}
-          name="username"
-          onChange={handleInputChange}
-          margin="normal"
-        />
-        
-        <TextField
-          id="filled-password-input"
-          label="Password"
-          className={classes.textField}
-          type="password"
-          name="password"
-          value={user.password}
-          onChange={handleInputChange}
-          // autoComplete="current-password"
-          margin="normal"
-        />
+    <form className={classes.container} onSubmit={handleFormSubmit} >
 
-        <Button variant="contained" onClick={handleFormSubmit} className={classes.button} >Submit</Button>
+      <TextField
+        id="standard-name"
+        label="Name"
+        className={classes.textField}
+        value={user.username}
+        name="username"
+        onChange={handleInputChange}
+        margin="normal"
+      />
 
-      </form>
-    </Container>
+      <TextField
+        id="filled-password-input"
+        label="Password"
+        className={classes.textField}
+        type="password"
+        name="password"
+        value={user.password}
+        onChange={handleInputChange}
+        // autoComplete="current-password"
+        margin="normal"
+      />
+
+      <Button variant="contained" onClick={handleFormSubmit} className={classes.button} >Submit</Button>
+
+    </form>
+
 
   )
 

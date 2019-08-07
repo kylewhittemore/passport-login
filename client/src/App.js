@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-// import SignUp from './components/SignUp'
+import SignUp from './components/SignUp'
 import Container from '@material-ui/core/Container'
 
 
