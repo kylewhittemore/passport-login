@@ -2,32 +2,17 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import Container from '@material-ui/core/Container'
-import Axios from 'axios';
-
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    // width: 500
-  },
   container: {
-    // display: 'flex',
-    // flexWrap: 'wrap',
-    width: 300,
+    width: 100 + "%",
     marginTop: 150,
     marginBottom: 50
   },
   textField: {
-    width: 300,
+    width: 80 + "%",
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-  },
-  dense: {
-    marginTop: 16,
-  },
-  menu: {
-    width: 200,
   },
   button: {
     margin: theme.spacing(1),
@@ -37,30 +22,23 @@ const useStyles = makeStyles(theme => ({
 
 const SignUp = props => {
 
-
+  const classes = useStyles()
+  
   const [user, setUser] = useState(props.emptyUser)
-
+  
   const handleInputChange = event => {
     const { name, value } = event.target
     setUser({ ...user, [name]: value });
-
   };
-
-
-  const classes = useStyles()
 
   const handleFormSubmit = event => {
     event.preventDefault()
-    // props.setCurrentUser(user)
+    props.postUser(user)
     setUser(props.emptyUser)
-    Axios.post('/user', user)
   }
 
   return (
-
-
     <form className={classes.container} onSubmit={handleFormSubmit} >
-
       <TextField
         id="standard-name"
         label="Name"
@@ -70,7 +48,6 @@ const SignUp = props => {
         onChange={handleInputChange}
         margin="normal"
       />
-
       <TextField
         id="filled-password-input"
         label="Password"
@@ -79,17 +56,11 @@ const SignUp = props => {
         name="password"
         value={user.password}
         onChange={handleInputChange}
-        // autoComplete="current-password"
         margin="normal"
       />
-
-      <Button variant="contained" onClick={handleFormSubmit} className={classes.button} >Submit</Button>
-
+      <Button variant="contained" onClick={handleFormSubmit} className={classes.button}>Submit</Button>
     </form>
-
-
   )
-
 }
 
 export default SignUp
