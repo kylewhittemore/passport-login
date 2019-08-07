@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Container maxWidth="sm" justify="center">
-        {/* <SignUp setCurrentUser={setCurrentUser} emptyUser={emptyUser} /> */}
+        <SignUp setCurrentUser={setCurrentUser} emptyUser={emptyUser} />
         <h1>{currentUser.username}</h1>
         <h1>{currentUser.password}</h1>
       </Container>
