@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import SignUp from './components/SignUp'
 import Container from '@material-ui/core/Container'
@@ -8,6 +8,8 @@ function App() {
 
   const emptyUser = { username: '', password: '' }
   const [currentUser, setCurrentUser] = useState(emptyUser)
+
+  
 
   return (
     <div className="App">

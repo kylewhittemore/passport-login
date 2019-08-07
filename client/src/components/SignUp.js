@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Container from '@material-ui/core/Container'
+import Axios from 'axios';
 
 
 const useStyles = makeStyles(theme => ({
@@ -50,8 +51,9 @@ const SignUp = props => {
 
   const handleFormSubmit = event => {
     event.preventDefault()
-    props.setCurrentUser(user)
+    // props.setCurrentUser(user)
     setUser(props.emptyUser)
+    Axios.post('/user', user)
   }
 
   return (
