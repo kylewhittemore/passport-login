@@ -6,6 +6,7 @@ import Axios from 'axios'
 import LoginForm from './components/LoginForm'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
+import { Route, Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -63,14 +64,16 @@ function App() {
 
   return (
     <div className="App">
-      <Container maxWidth="sm">
-        {currentUser.loggedIn && <p>Join the party, {currentUser.username}</p>}
-        <Button variant="contained" onClick={handleLogout} className={classes.button}>
-            Logout
-        </Button>
-        <SignUp setCurrentUser={setCurrentUser} emptyUser={emptyUser} />
-        <LoginForm setCurrentUser={setCurrentUser} emptyUser={emptyUser} />
-      </Container>
+      <Route
+        exact path="/"
+        component={home} />
+      <Route path="/login"
+        component={<LoginForm setCurrentUser={setCurrentUser} emptyUser={emptyUser} />}
+      />
+      <Route
+        path="/signup"
+        component={<SignUp setCurrentUser={setCurrentUser} emptyUser={emptyUser} />}
+      />
     </div>
   );
 }

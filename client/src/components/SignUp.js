@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Axios from 'axios'
+import { Container } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -49,28 +50,31 @@ const SignUp = props => {
   }
 
   return (
-    <form className={classes.container} onSubmit={handleFormSubmit} >
-      <TextField
-        id="standard-name"
-        label="Name"
-        className={classes.textField}
-        value={user.username}
-        name="username"
-        onChange={handleInputChange}
-        margin="normal"
-      />
-      <TextField
-        id="filled-password-input"
-        label="Password"
-        className={classes.textField}
-        type="password"
-        name="password"
-        value={user.password}
-        onChange={handleInputChange}
-        margin="normal"
-      />
-      <Button variant="contained" onClick={handleFormSubmit} className={classes.button}>Submit</Button>
-    </form>
+    <Container>
+
+      <form className={classes.container} onSubmit={handleFormSubmit} >
+        <TextField
+          id="standard-name"
+          label="Name"
+          className={classes.textField}
+          value={user.username}
+          name="username"
+          onChange={handleInputChange}
+          margin="normal"
+        />
+        <TextField
+          id="filled-password-input"
+          label="Password"
+          className={classes.textField}
+          type="password"
+          name="password"
+          value={user.password}
+          onChange={handleInputChange}
+          margin="normal"
+        />
+        <Button variant="contained" onClick={handleFormSubmit} className={classes.button}>Submit</Button>
+      </form>
+    </Container>
   )
 }
 

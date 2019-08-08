@@ -10,6 +10,7 @@ const bodyParser = require('body-parser')
 const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport')
 
+
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
