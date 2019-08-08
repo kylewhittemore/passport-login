@@ -16,6 +16,7 @@ app.use(bodyParser.json());
 
 app.use(session({
     secret: 'semi-charmed-kinda-life',
+    store: new MongoStore({ mongooseConnection: dbConnection }),
     resave: false, //required
     saveUninitialized: false //required
 }))
