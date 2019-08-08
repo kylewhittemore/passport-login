@@ -31,6 +31,7 @@ const LoginForm = props => {
     await Axios.post('/login', user).then(response => {
       console.log(response);
       if (response.status === 200) {
+        console.log('logged in')
         props.setCurrentUser({
           username: response.data.username,
           loggedIn: true
