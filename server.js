@@ -8,13 +8,14 @@ const session = require('express-session')
 const PORT = process.env.PORT || 8080;
 const bodyParser = require('body-parser')
 const MongoStore = require('connect-mongo')(session)
+const passport = require('./passport')
 
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 app.use(session({
     secret: 'semi-charmed-kinda-life',
-    
     resave: false, //required
     saveUninitialized: false //required
 }))
@@ -24,11 +25,8 @@ app.use((req, res, next) => {
     return next();
 })
 
-app.post('/user', (req, res) => {
-    console.log("user signup")
-    req.session.username = req.body.username
-    res.end()
-})
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));

@@ -21,16 +21,16 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const SignUp = props => {
+const LoginForm = props => {
 
   const classes = useStyles()
 
   const [user, setUser] = useState(props.emptyUser)
 
   async function postUser() {
-    await Axios.post('/user', user).then(response => {
+    await Axios.post('/user/login', user).then(response => {
       console.log(response);
-      (response.data) ? console.log('Successful sign up')
+      (response.status === 200) ? console.log('Successful sign up')
         : console.log('Sign up error');
     }).catch(err => console.log(err))
   }
@@ -74,4 +74,4 @@ const SignUp = props => {
   )
 }
 
-export default SignUp
+export default LoginForm
