@@ -1,15 +1,15 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-// const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs')
 mongoose.Promise = Promise
 
 const userSchema = new Schema({
 
-    username: { type: String, unique: true, required: true },
+    username: { type: String, unique: false, required: false },
     password: {
         type: String,
         unique: false,
-        required: true
+        required: false
     }
 
 })
@@ -25,11 +25,12 @@ userSchema.methods = {
 
 userSchema.pre('save', function (next) {
     if (!this.password) {
-        console.log('=========no password=========')
-        next()
+        console.log('=========no password=========');
+        next();
     } else {
-        console.log('hashPassword in pre save')
-        next()
+        console.log('hashPassword in pre save');
+        this.password = this.hashPassword(this.password)
+        next();
     }
 })
 

@@ -28,10 +28,14 @@ const LoginForm = props => {
   const [user, setUser] = useState(props.emptyUser)
 
   async function postUser() {
-    await Axios.post('/user/login', user).then(response => {
+    await Axios.post('/login', user).then(response => {
       console.log(response);
-      (response.status === 200) ? console.log('Successful sign up')
-        : console.log('Sign up error');
+      if (response.status === 200) {
+        props.setCurrentUser({
+          username: response.data.username,
+          loggedIn: true
+        })
+      }
     }).catch(err => console.log(err))
   }
 
@@ -42,7 +46,7 @@ const LoginForm = props => {
 
   async function handleFormSubmit(event) {
     event.preventDefault()
-    console.log('Sign-up-form, username: ')
+    console.log('Login-form, username: ')
     console.log(user.username)
     await postUser()
     setUser(props.emptyUser)

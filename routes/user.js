@@ -1,7 +1,26 @@
 const User = require('../database/models/User')
 
 module.exports = (req, res) => {
-    User.create(req.body)
-        .then(user => res.status(200).json(user))
-        .catch(err => res.status(400).send(err))
+   
+    console.log('user signup')
+    const { username, password } = req.body
+   
+    User.findOne({ username: username }, (err, user) => {
+        if (err) { console.log('user.js post error: ', err) }
+        else if (user) {
+            res.json({
+                error: `Sorry, already a user with the username: ${username}`
+            })
+        } else {
+            const newUser = new User({
+                username: username,
+                password: password
+            })
+            newUser.save((err, savedUser) => {
+                if (err) return res.json(err)
+                res.json(savedUser)
+            })
+        }
+    })
+
 }
