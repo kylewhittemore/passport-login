@@ -51,6 +51,9 @@ const Login = props => {
     console.log(user.username)
     await postUser()
     setUser(props.emptyUser)
+
+    // add authentication check here
+    props.history.push('/home')
   }
 
   return (

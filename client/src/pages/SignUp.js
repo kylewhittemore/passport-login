@@ -46,6 +46,9 @@ const SignUp = props => {
     console.log(user.username)
     await postUser()
     setUser(props.emptyUser)
+
+    //add auth here?
+    props.history.push('/login')
   }
 
   return (
