@@ -1,7 +1,8 @@
 {
   "name": "passport-login",
   "engines": {
-    "node": "10.15.3"
+    "node": "10.15.3",
+    "npm": "6.10.2"
   },
   "version": "1.0.0",
   "description": "",
