@@ -48,7 +48,7 @@ const SignUp = props => {
     setUser(props.emptyUser)
 
     //add auth here?
-    props.history.push('/login')
+    // props.history.push('/login')
   }
 
   return (
