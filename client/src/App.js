@@ -13,6 +13,7 @@ function App() {
   const emptyUser = { username: '', password: '' }
   const [currentUser, setCurrentUser] = useState({})
 
+
   const handleLogout = event => {
     event.preventDefault();
     console.log('logging out')

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import Container from '@material-ui/core/Container'
 import Axios from 'axios'
 
 const useStyles = makeStyles(theme => ({
@@ -36,6 +37,7 @@ const Login = props => {
           username: response.data.username,
           loggedIn: true
         })
+        props.history.push('/home')
       }
     }).catch(err => console.log(err))
   }
@@ -53,32 +55,35 @@ const Login = props => {
     setUser(props.emptyUser)
 
     // add authentication check here
-    props.history.push('/home')
+    // props.history.push('/home')
   }
 
   return (
-    <form className={classes.container} onSubmit={handleFormSubmit} >
-      <TextField
-        id="standard-name"
-        label="Name"
-        className={classes.textField}
-        value={user.username}
-        name="username"
-        onChange={handleInputChange}
-        margin="normal"
-      />
-      <TextField
-        id="filled-password-input"
-        label="Password"
-        className={classes.textField}
-        type="password"
-        name="password"
-        value={user.password}
-        onChange={handleInputChange}
-        margin="normal"
-      />
-      <Button variant="contained" onClick={handleFormSubmit} className={classes.button}>Submit</Button>
-    </form>
+    <Container maxWidth="sm">
+<p>Login</p>
+      <form className={classes.container} onSubmit={handleFormSubmit} >
+        <TextField
+          id="standard-name"
+          label="Name"
+          className={classes.textField}
+          value={user.username}
+          name="username"
+          onChange={handleInputChange}
+          margin="normal"
+        />
+        <TextField
+          id="filled-password-input"
+          label="Password"
+          className={classes.textField}
+          type="password"
+          name="password"
+          value={user.password}
+          onChange={handleInputChange}
+          margin="normal"
+        />
+        <Button variant="contained" onClick={handleFormSubmit} className={classes.button}>Submit</Button>
+      </form>
+    </Container>
   )
 }
 

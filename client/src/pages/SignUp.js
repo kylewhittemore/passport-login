@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
+import Container from '@material-ui/core/Container'
 import Axios from 'axios'
 
 const useStyles = makeStyles(theme => ({
@@ -9,6 +10,7 @@ const useStyles = makeStyles(theme => ({
     width: 100 + "%",
     marginTop: 150,
     marginBottom: 50
+
   },
   textField: {
     width: 80 + "%",
@@ -52,28 +54,31 @@ const SignUp = props => {
   }
 
   return (
-    <form className={classes.container} onSubmit={handleFormSubmit} >
-      <TextField
-        id="standard-name"
-        label="Name"
-        className={classes.textField}
-        value={user.username}
-        name="username"
-        onChange={handleInputChange}
-        margin="normal"
-      />
-      <TextField
-        id="filled-password-input"
-        label="Password"
-        className={classes.textField}
-        type="password"
-        name="password"
-        value={user.password}
-        onChange={handleInputChange}
-        margin="normal"
-      />
-      <Button variant="contained" onClick={handleFormSubmit} className={classes.button}>Submit</Button>
-    </form>
+    <Container maxWidth="sm">
+      <p>SignUp</p>
+      <form className={classes.container} onSubmit={handleFormSubmit} >
+        <TextField
+          id="standard-name"
+          label="Name"
+          className={classes.textField}
+          value={user.username}
+          name="username"
+          onChange={handleInputChange}
+          margin="normal"
+        />
+        <TextField
+          id="filled-password-input"
+          label="Password"
+          className={classes.textField}
+          type="password"
+          name="password"
+          value={user.password}
+          onChange={handleInputChange}
+          margin="normal"
+        />
+        <Button variant="contained" onClick={handleFormSubmit} className={classes.button}>Submit</Button>
+      </form>
+    </Container>
   )
 }
 
