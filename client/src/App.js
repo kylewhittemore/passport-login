@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import SignUp from './pages/SignUp'
-import Home from './pages/Home'
+// import Home from './pages/Home'
 import Login from './pages/Login'
 import NavBar from './components/NavBar'
 import Axios from 'axios'
@@ -58,14 +58,14 @@ function App() {
     <>
       <NavBar handleLogout={handleLogout} currentUser={currentUser} />
       <Switch>
-        <Route
+        {/* <Route
           exact path="/home"
           render={props =>
             <Home {...props}
               currentUser={currentUser}
               handleLogout={handleLogout}
             />}
-        />
+        /> */}
         <Route
           exact path="/signup"
           render={props =>
