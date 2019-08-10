@@ -53,7 +53,7 @@ const Login = props => {
     setUser(props.emptyUser)
 
     // add authentication check here
-    // props.history.push('/home')
+    props.history.push('/home')
   }
 
   return (
